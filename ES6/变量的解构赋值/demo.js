@@ -15,3 +15,20 @@ let arr1 = [1,2,3,4,5];
 arr1 = [e,d,c,b,a];
 console.log(arr1);
 /*解构的用途End*/
+
+function Person(name) {
+    this.name =name;
+}
+Person.prototype.eat =function (apple) {
+    this.apple = apple;
+    return this;
+};
+Person.prototype.say =function (goood) {
+    this.good =goood;
+    console.log(this.name+"吃了一个"+this.apple+",说"+this.good);
+    return this;
+};
+
+var p = new Person("Tom");
+var na = p.eat("apple").say("good!!").name;
+console.log(na);
