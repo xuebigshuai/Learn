@@ -37,8 +37,8 @@ Person.prototype.eat =function (apple) {
     this.apple = apple;
     return this;
 };
-Person.prototype.say =function (goood) {
-    this.good =goood;
+Person.prototype.say =function (good) {
+    this.good =good;
     console.log(this.name+"吃了一个"+this.apple+",说"+this.good);
     return this;
 };
