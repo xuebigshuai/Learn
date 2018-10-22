@@ -39,3 +39,16 @@ for(let i of arr2.keys()){
 for(let [i,e] of arr2.entries()){
     console.log(i,e);
 }
+/**
+ * 数组空位处理
+ * entries()、keys()、values()、find()和findIndex()会将空位处理成undefined；
+ * for...of循环也会遍历空位；
+ */
+
+
+
+
+
+
+
+
