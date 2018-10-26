@@ -63,5 +63,21 @@ var objQ={
 Object.setPrototypeOf(objQ,proto);
 var h = objQ.find();
 console.log(h);
+/**
+ * Object 属性的遍历
+ * @type {{name: string, age: number}}
+ */
+var objkey={
+    name:'xue',
+    age:26,
+    [Symbol()]:'symbol'
+};
+console.log("keys",Object.keys(objkey));
+console.log(Object.getOwnPropertyNames(objkey));
+console.log(Object.getOwnPropertySymbols(objkey));
+console.log(Reflect.ownKeys(objkey));
+for(let attr of Object.keys(objkey)){
+console.log(attr)
+}
 
 
