@@ -1,0 +1,19 @@
+{
+  "name": "learn",
+  "version": "1.0.0",
+  "description": "日常练习",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xuebigshuai/Learn.git"
+  },
+  "author": "薛煜帅",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xuebigshuai/Learn/issues"
+  },
+  "homepage": "https://github.com/xuebigshuai/Learn#readme"
+}
