@@ -79,3 +79,9 @@ console.log(f1);
 let jac = 'return'+'`Hello ${name}!`';
 let func = new Function('name',jac);
 console.log(func('Jack'));
+
+var iterator = 'iterator';
+console.log(`iterator[0]:${iterator[0]}`);
+for(let codePoint of iterator){
+    console.log(`iterator:${codePoint}`)
+}
