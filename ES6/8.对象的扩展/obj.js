@@ -80,4 +80,21 @@ for(let attr of Object.keys(objkey)){
 console.log(attr)
 }
 
+/**
+ * call 和 apply  的返回值 取决于 父类函数的返回值
+ * @constructor
+ */
+function Add(){
+    //return this.a+this.b;
+    this.c = this.a+this.b;
+}
+var obh = {
+    a:1,
+    b:2
+};
+
+//console.log(Add.call(obh));
+console.log(Add.apply(obh));
+console.log(obh.c);
+
 
