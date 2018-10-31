@@ -25,6 +25,24 @@ pr2.then(function (fn) {
    console.log(fn);
 });
 
+/**
+ * Promise.prototype.then()
+ * 1、then方法返回的是一个新的Promise实例（注意，不是原来那个Promise实例）。
+ *    因此可以采用链式写法，即then方法后面再调用另一个then方法。
+ * 2、第一个回调函数完成以后，会将返回结果作为参数，传入第二个回调函数。
+ * @type {Promise<any>}
+ */
+let thenObj = new Promise(function (resolve, reject) {
+   return resolve("6666")
+});
+   thenObj.then(function (data) {
+      console.log(data)
+   }).then(function () {
+       return "end";
+       //console.log("end")
+   }).then(function (data) {
+       console.log(data+'------------')
+   });
 
 var p1 = new Promise(function (resolve,reject) {
     resolve('p1');
@@ -43,3 +61,4 @@ Promise.all([p1,p2]).then(function (data) {
     }
     console.log(`AllData:${data}`);
 });
+
