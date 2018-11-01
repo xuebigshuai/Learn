@@ -1,7 +1,7 @@
 let fs = require('fs');
 
 /**
- * 一、async 函数
+ * 一、18.async 函数
  *
  * 1、正常情况下，await命令后面是一个 Promise 对象。如果不是，就返回对应的值。
  * 2、async函数返回的 Promise 对象，必须等到内部所有await命令后面的 Promise 对象执行完，
@@ -56,12 +56,12 @@ var gen1 = gen();
  *    异步 Generator 函数的作用，是返回一个异步遍历器对象，调用next()方法，返回Promise对象；
  * 1、异步 Generator 函数的作用，是返回一个异步遍历器对象；
  *  注意：
- *     普通的 async 函数返回的是一个 Promise 对象，而异步 Generator 函数返回的是一个异步 Iterator 对象。
- *     可以这样理解，async 函数和异步 Generator 函数，是封装异步操作的两种方法，都用来达到同一种目的。
+ *     普通的 18.async 函数返回的是一个 Promise 对象，而异步 Generator 函数返回的是一个异步 Iterator 对象。
+ *     可以这样理解，18.async 函数和异步 Generator 函数，是封装异步操作的两种方法，都用来达到同一种目的。
  *     区别在于，前者自带执行器，后者通过for await...of执行，或者自己编写执行器。
  */
 
 
 /**
- * 五、JavaScript 就有了四种函数形式：普通函数、async 函数、Generator 函数和异步 Generator 函数
+ * 五、JavaScript 就有了四种函数形式：普通函数、18.async 函数、Generator 函数和异步 Generator 函数
  */
