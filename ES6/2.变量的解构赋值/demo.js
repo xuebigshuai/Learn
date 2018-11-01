@@ -46,3 +46,14 @@ Person.prototype.say =function (good) {
 var p = new Person("Tom");
 var na = p.eat("apple").say("good!!").name;
 console.log(na);
+
+/**
+ *对象的解构赋值
+ * 1、对象的解构也可以指定默认值，默认值生效的条件是，对象的属性值严格等于undefined,null与undefined不严格相等;
+ */
+let {x=3,y=5}={x:6,y:3};
+console.log(x);
+console.log(y);
+let {w=3,u=5}={};
+console.log(w);
+console.log(u);
