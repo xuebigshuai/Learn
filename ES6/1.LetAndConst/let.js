@@ -1,5 +1,9 @@
-console.log("111");
 
+console.log("111");
+/**
+ * 1、const的作用域与let命令相同：只在声明所在的块级作用域内有效;
+ * @type {number}
+ */
 let a = 1 ;
 
 var b = 1;
