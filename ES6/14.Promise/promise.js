@@ -6,6 +6,7 @@ var promise = new Promise(function (resolve,reject) {
 
     return resolve(2)
 });
+console.log("promise:",promise);
 promise.then(function (data) {
    return new Promise(function (resolve,reject) {
        resolve(data*2)
@@ -23,6 +24,8 @@ var pr2 = new Promise(function (resolve,reject) {
 });
 pr2.then(function (fn) {
    console.log(fn);
+}).catch(function (e) {
+    console.log("执行出错",e);
 });
 
 /**
@@ -61,4 +64,11 @@ Promise.all([p1,p2]).then(function (data) {
     }
     console.log(`AllData:${data}`);
 });
+
+
+/**
+ * Promise.prototype.finally()
+ * 不管promise最后的状态，在执行完then或catch指定的回调函数以后，
+ *   都会执行finally方法指定的回调函数
+ */
 

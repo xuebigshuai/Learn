@@ -175,3 +175,9 @@ while (!task.done){
 }
 console.log(task.value);
 console.log(task.next(task.value));*/
+
+
+/**yield*
+ *  如果yield表达式后面跟的是一个遍历器对象，需要在yield表达式后面加上星号，
+ *  表明它返回的是一个遍历器对象。这被称为yield*表达式,yield*可以跟一个异步遍历器;
+ */
