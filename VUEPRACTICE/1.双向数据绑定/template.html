@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Template</title>
+    <script type="application/javascript" src="../node_modules/vue/dist/vue.min.js"></script>
+</head>
+<body>
+<div id="app">
+    <ul></ul>
+</div>
+</body>
+<script id="tpl" type="x-template">
+    <ul class="tpl">
+        <li>你好</li>
+        <li>登录</li>
+        <li v-once="a">{{a}}</li>
+        <li v-bind:id="'id_'+id">{{id}}</li>
+        <!--Vue.js 2.0 中废弃了这种写法，用 v-bind 指令代替， <div v-bind:id="'id-' + id"/></
+         div> 代替，或简写为 <div :id="'id-' + id"></div>-->
+        <li :id="'id-'+id">{{id}}</li>
+
+    </ul>
+</script>
+<script type="module">
+    let options = {
+        el: '#app',
+        template: '#tpl',
+        replace: false,
+        data: {
+            a: 1,
+            id: 'act',
+            index: 0,
+            name:'vue',
+            item: [{
+                name: 'vue1.0', version: '1.0'
+            },
+                {
+                    name: 'vue2.0', version: '2.0'
+                }
+            ]
+        }
+    };
+    let vm = new Vue(options)
+    vm.$data.a = 3;
+    /*
+    * 数据
+    * 1、需要注意的是，只有初始化时传入的对象才是响应式的；
+    * 2、Vue.js 作为数据驱动视图的框架；
+    * */
+</script>
+</html>

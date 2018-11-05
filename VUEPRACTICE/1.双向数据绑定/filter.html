@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>filter</title>
+    <script type="text/javascript" src="../node_modules/vue/dist/vue.min.js"></script>
+</head>
+<body>
+<div id="app">
+  <ul>
+      <!--过滤器的使用-->
+      <li>{{ name|capitalize }} </li>
+      <li><input v-on:keyup="onkeyup"></li>
+      <li v-for="item in names ">{{item|uppercase}}</li>
+  </ul>
+</div>
+</body>
+<script type="text/javascript">
+    /*
+    * 需要注意的是， Vue.js 2.0 中已经去除了内置的过滤器
+    * */
+    let options ={
+        el:'#app',
+        data:{
+            name:'vue',
+            names:['vue1.0','version1.0','vue2.0','version2.0']
+        },
+        /*
+        * 添加方法区
+        * */
+        methods:{
+            onkeyup(e){
+                alert(e.which)
+            }
+        },
+        filters:{
+            uppercase:this.uppercase||function (data) {
+               return data.toUpperCase();
+            }
+        }
+    };
+    let vm =new Vue(options)
+</script>
+</html>
