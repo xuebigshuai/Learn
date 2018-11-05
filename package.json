@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/xuebigshuai/Learn#readme",
   "dependencies": {
+    "babel-cli": "^6.26.0",
     "co": "^4.6.0",
     "thunkify": "^2.1.2"
   }
