@@ -9,8 +9,21 @@
 <div id="app"></div>
 </body>
 <script type="module">
+    /*
+   *  1、Vue.js 指令是带有前缀的 v- 的属性
+   *  2、计算属性 computed
+   * */
     let options ={
-        el:'#app'
+        el:'#app',
+        data:{
+            firstName:'xue',
+            lastName:'shuai'
+        },
+        computed:{
+            fullName(){
+            return this.firstName+''+this.lastName
+        }
+    }
     };
     let vm =new Vue(options)
 </script>
