@@ -1,5 +1,6 @@
 /**
- * Object.assign()
+ * Object.assign(target,source)
+ * 将source上的可枚举属性复制到target上（方法用于对象的合并，将源对象（source）的所有可枚举属性，复制到目标对象（target））
  *
 */
 var obj={a:1};
