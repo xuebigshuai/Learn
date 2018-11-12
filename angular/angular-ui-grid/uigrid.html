@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>angular-ui-grid</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/angular-ui/bower-ui-grid/ui-grid.min.css" type="text/css"/>
+    <link rel="stylesheet" href="css/ng-grid.css" type="text/css"/>
+    <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.3/angular.min.js"></script>
+    <!--ui-grid js-->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/angular-ui/bower-ui-grid/ui-grid.min.js"></script>
+  <!--ui-grid excel export-->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ng-csv/0.3.6/ng-csv.min.js"></script>
+    <!--ui-grid pdf export-->
+    <script type="text/javascript" src="../../node_modules/pdfmake/build/pdfmake.js"></script>
+    <script type="text/javascript" src="../../node_modules/pdfmake/build/vfs_fonts.js"></script>
+
+</head>
+<body>
+<div ng-app="app">
+
+    <div ng-controller="myController">
+        <!--ui-grid-selection 选择行指令-->
+        <!--ui-grid-resize-columns 表格宽可拉伸指令-->
+        <!--ui-grid-auto-resize 自动使用div的高度和宽度指令-->
+        <!--ui-grid-exporter 导出指令-->
+        <!--ui-grid-edit 编辑指令-->
+        <!--ui-gird-pagination 分页指令-->
+        <!--ui-gird-pagination 分页指令-->
+        <!--ui-grid-cellnav 单元格指令-->
+        <!--gridStyle 自定义设置样式-->
+        <div ui-grid="gridOptions" class="gridStyle" ui-grid-selection ui-grid-resize-columns ui-grid-auto-resize
+             ui-grid-exporter ui-grid-edit ui-gird-pagination ui-grid-cellnav></div>
+    </div>
+
+</div>
+
+</body>
+<script src="js/ng-grid.js"></script>
+</html>
