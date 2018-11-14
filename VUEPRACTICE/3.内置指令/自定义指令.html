@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo</title>
+    <style>
+        body {
+            width: 600px;
+            margin: 20px auto;
+        }
+    </style>
+    <script type="application/javascript" src="../node_modules/vue/dist/vue.js"></script>
+    <script type="application/javascript" src="../node_modules/vue/dist/vue.min.js"></script>
+</head>
+<body>
+<div id="app">
+    <input type="text" v-model="a"/>
+    <span v-global-directive="message">{{message}}</span>
+    <span v-xys-directive="message">{{message}}</span>
+    <!--绑定字符串需要加单引号-->
+    <span v-xys-directive="'message'">message</span>
+    <!-- 指令的高级选项 -->
+    <p v-big-write :a="a">{{a}}</p>
+</div>
+</body>
+<script type="module">
+    /*
+    *  Vue.js 指令是带有前缀的 v- 的属性
+    * */
+    let options = {
+        el: '#app',
+        data: {
+            message: 'Hello VUE',
+            content: [],
+            a: 'a'
+        }
+    };
+    let vm = new Vue(options);
+    /*
+    * 1、全局自定义指令的注册
+    * 2、指令定义对象，定义对象主要包含三个钩子函数： bind、 update 和 unbind
+    *
+    * 3、如果我们只需要使用 update 函数时，可以直接传入一个函数代替定义对象
+    * */
+    var definition = {
+        bind: function () {
+            console.log("bind", arguments)
+        },
+        update(newValue, oldValue) {
+            console.log("update", newValue, oldValue)
+        },
+        unbind() {
+            console.log("unbind", arguments);
+        }
+    };
+    Vue.directive('global-directive', definition);
+    /*
+    * 在 Vue.js 2.0 中取消了指令实例这一概念，即在钩子函数中的 this 并不能指向指令的相关属性。指令的相关属性均通过参数的形式传递给钩子函数.
+    * */
+    Vue.directive('xys-directive', function (el, binding, vnode, oldVNode) {
+
+        console.log('el', el);
+        console.log('binding', binding);
+        console.log('vnode', vnode);
+        console.log('oldVNode', oldVNode);
+    });
+
+    /*
+    * 元素指令
+    * Vue.js 2.0 中取消了这个特性，推荐使用组件来实现需要的业务
+    * */
+    /* Vue.elementDirective('my-ele-directive');// 全局注册方式
+     var Comp = Vue.extend({ // 局部注册，仅限该组件内使用
+         // 省略了其他参数
+         elementDirectives: {
+             'eleDirective': {}
+         }
+     });
+     Vue.component('comp', Comp);*/
+
+    /**
+     * 指令的高级选项
+     * 1、params
+     * 2、acceptStatement:true ：可以允许自定义指令接受内联语句
+     * 3、priority：为指定指令的优先级，普通指令默认是 1000，termial 指令默认为
+     2000，相同优先级则按出现顺序依次处理
+     */
+    Vue.directive('big-write', {
+        params: ['a'],
+        acceptStatement: true,
+        paramWatchers: {
+            a(val, oldVal) {
+                console.log('watcher', val, oldVal)
+            }
+        },
+        bind() {
+            console.log('params', this.params);
+        },
+        update(fn) {
+
+        }
+    })
+
+
+</script>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo</title>
+    <style>
+        body{
+            width: 600px;
+            margin: 20px auto;
+
+        }
+    </style>
+    <script type="application/javascript" src="../node_modules/vue/dist/vue.min.js"></script>
+</head>
+<body>
+<div id="app">
+    <div v-bind:class="{'active':active,'unactive':!active}"></div>
+    <div v-bind:class="[calssA,classB]"></div>
+    <div v-bind:style="[calssA,classB]"></div>
+    <div v-bind:style="alertStyle"></div>
+    <div v-bind:style="[styleObjectA,styleObjectB]"></div>
+    <div v-bind:style="{fontSize:alertStyle.fontSize,color:'red'}">你好</div>
+</div>
+</body>
+<script type="module">
+    /*
+    *  Vue.js 指令是带有前缀的 v- 的属性
+    * */
+    let options ={
+        el:'#app',
+        data:{
+            active:true,
+            alertStyle:{
+                fontSize:'20px'
+            },
+            calssA:{
+                padding:'10px',
+                background:'red'
+
+            },
+            classB:'class-b',
+            styleObjectA:'obja',
+            styleObjectB:'objb'
+        }
+    };
+    let vm =new Vue(options)
+</script>
+</html>

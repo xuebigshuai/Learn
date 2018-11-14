@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件监听</title>
+    <style>
+        body {
+            width: 600px;
+            margin: 20px auto;
+            /*color: yellow;*/
+        }
+        div{
+            border: 10px solid;
+            border-color: #00ff48 #FFBEA3 #444444 yellow;
+        }
+    </style>
+    <script type="application/javascript" src="../node_modules/vue/dist/vue.min.js"></script>
+</head>
+<body>
+<div id="app">
+    <!-- 1、Vue.js 也 提 供 了 v-on  缩写，简写成@    2、同一元素上也可以通过 v-on 绑定多个相同事件函数，执行顺序为顺序执行 -->
+
+    <p v-on:click="say" @click="change" style="cursor:pointer">say</p>
+    <p @click="change" style="cursor:pointer" v-bind:style="objStyle">change</p>
+    <!--<div></div>-->
+</div>
+</body>
+<script type="module">
+    /*
+    *  Vue.js 指令是带有前缀的 v- 的属性
+    * */
+    let options = {
+        el: '#app',
+        data: {
+            msg: 'Hello VUE',
+            objStyle: '',
+        },
+        methods: {
+            say() {
+                alert(this.msg)
+            },
+            change() {
+                this.objStyle = {
+                    border: '10px solid red'
+                }
+
+            }
+        }
+    };
+    let vm = new Vue(options)
+    vm.objStyle = {
+        border: '10px solid #green #cccc #red #yellow'
+    }
+</script>
+</html>

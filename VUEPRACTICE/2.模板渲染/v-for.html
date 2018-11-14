@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo</title>
+    <style>
+        body{
+            width: 600px;
+            margin: 20px auto;
+        }
+    </style>
+    <script type="application/javascript" src="../node_modules/vue/dist/vue.min.js"></script>
+</head>
+<body>
+<div id="app">
+    <ul>
+        <li v-for="item in arry" track-by="_id" >{{item.title}}</li>
+    </ul>
+    <ul>
+        <li v-for="(key,value) in obj">{{key}}:{{value}}</li>
+    </ul>
+    <input type="checkbox" v-model="yes"/>
+    <template v-if="yes">
+        <p>There is first dom</p>
+        <p>There is second dom</p>
+        <p>There is third dom</p>
+    </template>
+
+</div>
+</body>
+<script type="module">
+    /*
+    *  Vue.js 指令是带有前缀的 v- 的属性
+    *  在vue2.x 版本后 $index 和 $key 移除
+    * */
+    let options ={
+        el:'#app',
+        data:{
+            arry:[{_id:1,title:'ni'},{_id:2,title:'hao'},{_id:3,title:'a'}],
+            obj:{
+                a:1,b:2,c:3
+            },
+            yes:true
+        }
+    };
+    let vm =new Vue(options);
+    vm.arry[0]={title:'ccc'};
+</script>
+</html>

@@ -12,14 +12,23 @@
     <script type="application/javascript" src="../node_modules/vue/dist/vue.min.js"></script>
 </head>
 <body>
-<div id="app"></div>
+<div id="app">
+    <input type="checkbox" v-model="show"/>
+    <div v-if="show">if</div>
+    <div v-else>no</div>
+    <div v-show="show">show</div>
+    <div v-else>no</div>
+</div>
 </body>
 <script type="module">
     /*
     *  Vue.js 指令是带有前缀的 v- 的属性
     * */
     let options ={
-        el:'#app'
+        el:'#app',
+        data:{
+            show:false
+        }
     };
     let vm =new Vue(options)
 </script>

@@ -12,14 +12,20 @@
     <script type="application/javascript" src="../node_modules/vue/dist/vue.min.js"></script>
 </head>
 <body>
-<div id="app"></div>
+<div id="app">
+
+</div>
 </body>
 <script type="module">
     /*
     *  Vue.js 指令是带有前缀的 v- 的属性
     * */
     let options ={
-        el:'#app'
+        el:'#app',
+        data:{
+            message:'Hello VUE',
+            content:[],
+        }
     };
     let vm =new Vue(options)
 </script>

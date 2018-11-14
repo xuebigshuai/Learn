@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>form表单</title>
+    <!--<link rel="stylesheet" href="#"  type="text/css">-->
+    <script type="application/javascript" src="../node_modules/vue/dist/vue.min.js"></script>
+    <style>
+        body{
+            width: 600px;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <input type="text" v-model="message" />
+    <p>You input is {{message}}</p>
+    <label><input type="radio" v-model="gender" name="sex" value="male" >男</label>
+    <label><input type="radio" v-model="gender" name="sex" value="female">女</label>
+    <p>You choose {{gender}}</p>
+    <div>check单选</div>
+    <label><input type="checkbox" v-model="checked">复选</label>
+    <p>Checked{{checked}}</p>
+    <div>check多选</div>
+    <label><input type="checkbox" v-model="multiChecked" value="1">1</label>
+    <label><input type="checkbox" v-model="multiChecked" value="2">2</label>
+    <label><input type="checkbox" v-model="multiChecked" value="3">3</label>
+    <label><input type="checkbox" v-model="multiChecked" value="4">4</label>
+    <p>You choose {{multiChecked}}</p>
+    <p>You choose {{multiChecked.join('|')}}</p>
+    <div>
+        <p>select单选</p>
+        <select v-model="selected">
+            <option>1</option>
+            <option>3</option>
+            <option>2</option>
+        </select>
+        <span>Selected:{{selected}}</span>
+    </div>
+    <p>select多选</p>
+    <select v-model="multiSelected" multiple>
+        <option>1</option>
+        <option>3</option>
+        <option>2</option>
+        <option>A</option>
+    </select>
+    <span>multiSelected:{{multiSelected}}</span>
+    <span>multiSelected:{{multiSelected.join(";")}}</span>
+    <select class="demo" multiple="multiple">
+        <optgroup label="Languages">
+            <option value="cp">C++</option>
+            <option value="cs">C#</option>
+            <option value="oc">Object C</option>
+            <option value="c">C</option>
+        </optgroup>
+        <optgroup label="Scripts">
+            <option value="js">JavaScript</option>
+            <option value="php">PHP</option>
+            <option value="asp">ASP</option>
+            <option value="jsp">JSP</option>
+        </optgroup>
+    </select>
+    <div>
+        <p>V-bind 绑定value</p>
+        <label><input type="checkbox" v-model="bChecked" v-bind:true-value="a" v-bind:false-value="b">复选v-bind</label>
+        <p>BChecked{{bChecked}}</p>
+        <label><input type="radio" v-model="bRadio" name="sex" v-bind:value="c" >男</label>
+        <label><input type="radio" name="sex" checked >一般的radio表单</label>
+        <p>BRadio:{{bRadio}}</p>
+        <select v-model="bSelect">
+            <option v-bind:value="{numbe:123}">1233</option>
+        </select>
+        <span>{{typeof (bSelect)}}</span>
+        <span>{{bSelect.number}}</span>
+    </div>
+</div>
+</div>
+</body>
+<script type="module">
+    /*
+    *  Vue.js 指令是带有前缀的 v- 的属性
+    * */
+    let options ={
+        el:'#app',
+        data:{
+            message:'',
+            gender:'',
+            checked:'',
+            multiChecked:[],
+            selected:'',
+            multiSelected:[],
+            bChecked:'',
+            a:'a',
+            b:'b',
+            c:'c',
+            bRadio:'',
+            bSelect:''
+
+        }
+    };
+    let vm =new Vue(options)
+</script>
+</html>

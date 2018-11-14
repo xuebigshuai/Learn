@@ -14,7 +14,7 @@
     <ul class="tpl">
         <li>你好</li>
         <li>登录</li>
-        <li v-once="a">{{a}}</li>
+        <li v-once="a" >{{a}}</li>
         <li v-bind:id="'id_'+id">{{id}}</li>
         <!--Vue.js 2.0 中废弃了这种写法，用 v-bind 指令代替， <div v-bind:id="'id-' + id"/></
          div> 代替，或简写为 <div :id="'id-' + id"></div>-->
@@ -41,12 +41,18 @@
             ]
         }
     };
-    let vm = new Vue(options)
+    let vm = new Vue(options);
+
     vm.$data.a = 3;
+    vm.a=4;
+   /* vm.$set('b', 2);*/
+   /* console.log(vm.b);*/
     /*
     * 数据
     * 1、需要注意的是，只有初始化时传入的对象才是响应式的；
+    *   如果需要在实例化之后加入响应式变量，需要调用实例方法 $set
     * 2、Vue.js 作为数据驱动视图的框架；
+    * 3、模板语法同时也支持单次插值，即首次赋值后再更改 vm 实例属性值不会引起 DOM 变化（采用 v-once）
     * */
 </script>
 </html>

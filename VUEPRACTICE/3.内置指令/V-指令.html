@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo</title>
+    <style>
+        body{
+            width: 600px;
+            margin: 20px auto;
+        }
+    </style>
+    <script type="application/javascript" src="../node_modules/vue/dist/vue.min.js"></script>
+</head>
+<body>
+<div id="app">
+    <!-- 与直接使用 {{}} 不同的是， v-text 需要绑定在某个元素上，能避免未编译前的闪现问题 -->
+   <span v-text="message"></span>
+    <!--绑定字符串需要加单引号-->
+    <p v-HTML="'<span>'+message+'</span>'"></p>
+    <!-- v-cloak  可以隐藏未编译的 Mustache标签直到实例准备完毕-->
+    <p v-cloak>{{message}}</p>
+    <!--v-once 指令是 Vue.js 2.0 中新增的内置指令，用于标明元素或组件只渲染一次-->
+    <p v-once >{{message}}</p>
+</div>
+</body>
+<script type="module">
+    /*
+    *  Vue.js 指令是带有前缀的 v- 的属性
+    * */
+    let options ={
+        el:'#app',
+        data:{
+            message:'Hello VUE',
+            content:[],
+        }
+    };
+    let vm =new Vue(options)
+    vm.message = 'VUE Hello';
+</script>
+</html>
