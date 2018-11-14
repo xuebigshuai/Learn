@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            margin: 0 auto;
+            width: 600px;
+            height: 600px;
+            background-color: #FFBEA3;
+        }
+    </style>
+</head>
+<body>
+   <div></div>
+</body>
+<script>
+    var arr = ['red','blue','yellow','black'];
+
+    var div = document.getElementsByTagName("div")[0];
+    //div.addEventListener('touchmove',touch,false);
+    div.addEventListener('touchstart',touch,false);
+    div.addEventListener('touchend',touch,false);
+    function touch(e) {
+        /*
+        * IE将事件作为window的一个属性
+        * */
+        var i = Math.ceil(Math.random()*4);
+        console.log(i);
+        console.log(this);
+
+        var e = e || window.event;
+        console.log(e);
+        this.style.backgroundColor=arr[i];
+    }
+
+</script>
+</html>
