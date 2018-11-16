@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>position</title>
+    <style>
+        html{
+            width: 1000px;
+            background-color: #444444;
+        }
+        body{
+
+            margin:0 auto;
+            background-color: #dadafa;
+
+        }
+        #box{
+            width: 400px;
+            height: 400px;
+            margin: 0 auto;
+            background-color: #FFBEA3;
+        }
+        /*
+        *position:relative;
+         相对于自己原位置定位,元素移动之后原始位置被保留
+        *
+        */
+        #box div:nth-child(1){
+            width: 100px;
+            height: 100px;
+            background: #00ff48;
+            position: relative;
+            left: 100px;
+            top: 100px;
+
+        }
+        .child2{
+            width: 100px;
+            height: 100px;
+            background:red;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+    </style>
+</head>
+<body>
+  <div id="box">
+      <div class="child1">child1</div>
+      <div class="child2">child2</div>
+  </div>
+</body>
+</html>
