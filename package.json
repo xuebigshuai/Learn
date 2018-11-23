@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/xuebigshuai/Learn#readme",
   "dependencies": {
+    "animate.css": "^3.7.0",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-preset-stage-3": "^6.24.1",

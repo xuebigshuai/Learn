@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>色子</title>
+    <style>
+        html{
+            background: linear-gradient(#29f9f0 0%, #000 80%);
+            height: 100%;
+        }
+        .three {
+            margin-top: 300px;
+            position: relative;
+            width: 100%;
+        }
+
+        .three ul {
+            margin: 0 auto;
+            width: 100px;
+            height: 100px;
+            padding: 0;
+            transform-style: preserve-3d;
+            transform: rotateX(-50deg) rotateY(-50deg) rotateZ(0deg);
+            animation: move 8s infinite linear;
+        }
+
+        .three ul li {
+            display: inline-block;
+            width: 200px;
+            height: 200px;
+            line-height: 200px;
+            text-align: center;
+            font-size: 24px;
+            position: absolute;
+            left: 50%;
+            color: #ff92ff;
+            border: 10px solid #66daff;
+            border-radius: 20px;
+            transition: transform 0.3s ease-in;
+            /*transform: translate(-50%);*/
+        }
+
+        .three ul li:first-child {
+            background-color: rgba(51, 51, 51, .3);
+            transform: translateZ(100px);
+        }
+
+        .three ul li:nth-child(2) {
+            background-color: rgba(51, 51, 51, .3);
+            transform: translateX(-100px) rotateY(-90deg);
+        }
+
+        .three ul li:nth-child(3) {
+            background-color: rgba(51, 51, 51, .3);
+            transform: translateX(100px) rotateY(90deg);
+        }
+
+        .three ul li:nth-child(4) {
+            background-color: rgba(51, 51, 51, .3);
+            transform: translateZ(-100px) rotateY(180deg);
+        }
+
+        .three ul li:nth-child(5) {
+            background-color: rgba(51, 51, 51, .3);
+            transform: translateY(-100px) rotateX(90deg);
+        }
+
+        .three ul li:nth-child(6) {
+            background-color: rgba(51, 51, 51, .3);
+            transform: translateY(100px) rotateX(-90deg);
+        }
+
+        @keyframes move {
+
+        %0
+        {
+            transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+        }
+        100%
+        {
+            transform: rotateX(720deg) rotateY(360deg) rotateZ(360deg);
+        }
+        }
+        .three ul:hover .a {
+            transform: translateZ(200px);
+        }
+
+        .three ul:hover .b {
+            transform: translateX(-200px) rotateY(-90deg);
+
+        }
+
+        .three ul:hover .c {
+            transform: translateX(200px) rotateY(90deg);
+
+        }
+
+        .three ul:hover .d {
+            transform: translateZ(-200px) rotateY(180deg);
+
+        }
+
+        .three ul:hover .e {
+            transform: translateY(-200px) rotateX(90deg);
+
+        }
+
+        .three ul:hover .f {
+            transform: translateY(150px) rotateX(-90deg);
+
+        }
+
+    </style>
+</head>
+<body>
+<div class="three">
+    <ul>
+        <li class="a">1</li>
+        <li class="b">2</li>
+        <li class="c">3</li>
+        <li class="d">4</li>
+        <li class="e">5</li>
+        <li class="f">6</li>
+    </ul>
+</div>
+</body>
+</html>

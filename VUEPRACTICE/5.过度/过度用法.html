@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Demo</title>
+    <link rel="stylesheet" href="../node_modules/animate.css/animate.css" type="text/css">
     <style>
         body {
             margin: 0;
@@ -18,41 +19,85 @@
         }
 
         .my-startup-enter {
-            height: 100px;
             background: #00ff48;
-            transition: all 1s ease;
+            opacity: 0;
+        }
+
+        .my-startup-enter-active {
+            height: 100px;
             opacity: 1;
+            transition: all 2s ease;
         }
-        .my-startup-enter-active, .my-startup-leave-active,.my-startup-leave-to{
-            height: 10px;
-            opacity: 1;
+
+        .my-startup-leave-active {
+            background: #00ff48;
+            transition: all 2s ease;
         }
-        .fade-enter{
-            opacity:0;
+
+        .my-startup-leave-to {
+            background: #FFBEA3;
+            /* transition: all 2s ease;*/
         }
-        .fade-enter-active{
-            transition:opacity .5s;
+
+        .fade-enter {
+            opacity: 0;
         }
-        .fade-leave-active{
-            transition:transform .5s;
+
+        .fade-enter-active {
+            transition: opacity .5s;
         }
-        .fade-leave-to{
-            transform:translateX(10px);
+
+        .fade-leave-active {
+            transition: transform .5s;
         }
+
+        .fade-leave-to {
+            transform: translateX(10px);
+        }
+
+        .my {
+            animation-duration: 3s;
+            animation-delay: 2s;
+            animation-iteration-count: infinite;
+        }
+
+        .my_velocity {
+            width: 200px;
+            height: 60px;
+            border: 1px solid red;
+            border-radius: 20px;
+            text-align: center;
+            line-height: 60px;
+            position: relative;
+        }
+
     </style>
+    <script type="text/javascript" src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="../node_modules/velocity-animate/velocity.min.js"></script>
     <script type="application/javascript" src="../node_modules/vue/dist/vue.min.js"></script>
 </head>
 <body>
 <div id="app">
     <input type="checkbox" v-model="show">{{show}}
     <transition name="my-startup">
-        <div v-if="show" >ddddd</div>
+        <div v-if="show">ddddd</div>
     </transition>
     <div id="demo">
         <button v-on:click="show = !show">Toggle</button>
         <transition name="fade">
             <p v-if="show">小火柴的蓝色理想</p>
         </transition>
+    </div>
+    <div class="ani">
+        <p class="animated infinite bounce delay-2s">
+            Hello World
+        </p>
+        <p class="animated infinite bounce my">
+            Hello World
+        </p>
+        <p class="my_velocity">
+            velocity
+        </p>
     </div>
 
 </div>
@@ -70,5 +115,16 @@
         }
     };
     let vm = new Vue(options)
+
+    /*
+    * css 过渡钩子函数
+    * */
+    function start() {
+        $(".my_velocity").velocity({left: "200px"}, 2000, "swing", done);
+    };
+    start();
+    function done() {
+        $(".my_velocity").velocity({left: "0px"}, 2000, "swing", start)
+    }
 </script>
 </html>
