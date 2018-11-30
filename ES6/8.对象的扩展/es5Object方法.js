@@ -14,8 +14,8 @@ var person = Object.create({}, {
         enumerable: false,//对象属性是否可通过for-in循环，flase为不可循环，默认值为true
     },
     age: {
-        writable:true,
-        configurable:true
+        writable: true,
+        configurable: true
     },
     _size: {
         value: 27,
@@ -26,9 +26,16 @@ var person = Object.create({}, {
         get() {
             return this._size
         },
-        set(newValue){
+        set(newValue) {
             this._size *= newValue
         }
+    },
+    _sex: {
+
+        value: '男',
+        writable: true,
+        enumerable: true,
+        configurable: true
     }
 });
 console.log(person);//{}
@@ -43,3 +50,19 @@ console.log(person.age);//undefined
 console.log(person.size);//27
 person.size = 2;
 console.log(person.size);//54=2*27
+
+
+Object.defineProperty(person, 'sex', {
+
+    set: function (newValue) {
+        this._sex = newValue;
+    },
+    get: function () {
+        return this._sex;
+    }
+});
+
+console.log(person.sex);//男
+person.sex='女';
+console.log(person.sex);//女
+console.log(person._sex);//女
