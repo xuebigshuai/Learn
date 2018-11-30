@@ -16,7 +16,7 @@
         <li>登录</li>
         <li v-once="a" >{{a}}</li>
         <li v-bind:id="'id_'+id">{{id}}</li>
-        <!--Vue.js 2.0 中废弃了这种写法，用 v-bind 指令代替， <div v-bind:id="'id-' + id"/></
+        <!--Vue.js 2.0 中，用 v-bind 指令代替， <div v-bind:id="'id-' + id"/></
          div> 代替，或简写为 <div :id="'id-' + id"></div>-->
         <li :id="'id-'+id">{{id}}</li>
 
