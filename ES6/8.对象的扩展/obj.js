@@ -49,7 +49,7 @@ console.log(peroPrototype);
 
 /**
  * super 指向当前对象的原型对象
- * setPrototypeOf() 用来设置一个对象的prototype对象，返回参数对象本身
+ * setPrototypeOf(obj,prototype) 用来设置一个对象的prototype对象，返回参数对象本身
  * @type {{foo: string}}
  */
 const proto = {
