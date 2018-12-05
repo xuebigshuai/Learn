@@ -12,12 +12,13 @@
             background-color: #00ff48;
         }
     </style>
-    <script type="application/javascript" src="../node_modules/vue/dist/vue.min.js"></script>
+    <script type="text/javascript" src="../node_modules/vue/dist/vue.min.js"></script>
 </head>
 <body>
 <div id="app">
     <glob-component></glob-component>
     <parent-c></parent-c>
+    <save-message></save-message>
 </div>
 </body>
 <script type="module">
@@ -57,7 +58,17 @@
      */
     Vue.component('glob-component', glob_component);
     Vue.component('parent-c', parentComponent);
+    /**
+     * 注册语法糖
+     */
+    Vue.component('save-message',{
+        template:'<h1>语法糖</h1>'
+    });
 
     let vm = new Vue(options)
+</script>
+<script id="tpl" type="x-template">
+
+
 </script>
 </html>
