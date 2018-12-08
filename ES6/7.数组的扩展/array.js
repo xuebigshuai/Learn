@@ -1,4 +1,8 @@
 let arr = [1,"a","c",true];
+//for..of循环默认是arr.values()
+for(let [key,value] of arr.entries()){
+    console.log(key)
+}
 for (k in arr){
     console.log(k+'ffffffffffff');
     console.log(arr[k]);
