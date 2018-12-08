@@ -3,11 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        #parent, #parent1,#parent2{
+            float: left;
+            width:200px;
+            height: 200px;
+            border: 1px solid #00ff48;
+            margin-right: 30px;
+        }
+        #child,#child1,#child2{
+            width: 100px;
+            height: 100px;
+            margin: 0 auto;
+            background-color: #FFBEA3;
+        }
+    </style>
 </head>
 <body>
-
+<div id="parent">
+    <p id="child"></p>
+</div>
+<div id="parent1">
+    <p id="child1"></p>
+</div>
+<div id="parent2">
+    <p id="child2"></p>
+</div>
 </body>
 <script>
+var parent = document.getElementById('parent');
+var parent1 = document.getElementById('parent1');
+var parent2 = document.getElementById('parent2');
+var child = document.getElementById('child');
+var child1 = document.getElementById('child1');
+var child2 = document.getElementById('child2');
+/*
+* 1、所有现代浏览器都支持事件冒泡即支持冒泡型世间流机制
+* DOM0级事件处理程序,直接在元素上绑定事件
+* */
+parent.onclick = function () {
+    alert('this is parent')
+};
+child.onclick=function () {
+    alert('this is child')
+};
+/**
+ * 1、DOM2级事件处理程序,其定义了两个方法用于添加和删除事件处理程序：addEventListener()和removeEventListener()。
+ * 这两个方法都需要3个参数：事件名，事件处理函数，布尔值。
+ * 这个布尔值为true,在捕获阶段处理事件，为false，在冒泡阶段处理事件，默认为false。
+ * 2、IE8及以下版本浏览器实现了与DOM中类似的两个方法：attachEvent()和detachEvent()。
+ */
+
+//儿子的执行顺序是看addEventListener添加的顺序，父级的执行顺序是按照先捕获和后冒泡的事件流机制运行
+/*child1.addEventListener('click',function () {
+    alert('冒泡的儿子')
+},false);
+child1.addEventListener('click',function () {
+    alert('捕获的儿子')
+},true);
+parent1.addEventListener('click',function () {
+    alert('冒泡的爹')
+},false);
+parent1.addEventListener('click',function () {
+    alert('捕获的爹')
+},true)*/
+child1.addEventListener('click',function () {
+    alert('捕获的儿子')
+},true);
+child1.addEventListener('click',function () {
+    alert('冒泡的儿子')
+},false);
+parent1.addEventListener('click',function () {
+    alert('捕获的爹')
+},true);
+parent1.addEventListener('click',function () {
+    alert('冒泡的爹')
+},false);
+/**
+ * 二、事件对象（e|window.event）
+ */
+function move(e){
+    console.log(e)
+};
+parent2.addEventListener('mousedown',function () {
+    console.log(arguments[0])
+    parent2.addEventListener('mousemove',move)
+});
+parent2.addEventListener('mouseup',function () {
+    console.log(arguments[0])
+    parent2.removeEventListener('mousemove',move)
+
+});
+
 
 </script>
 </html>

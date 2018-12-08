@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #parent2 {
+            position: absolute;
+            float: left;
+            width: 200px;
+            height: 200px;
+            border: 1px solid #00ff48;
+            margin-right: 30px;
+            top: 10px;
+            left: 10px;
+        }
+
+        #child2 {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto;
+            background-color: #FFBEA3;
+        }
+    </style>
+</head>
+<body>
+<div id="parent2">
+    <p id="child2"></p>
+</div>
+</body>
+<script>
+    var parent2 = document.getElementById('parent2');
+    var child2 = document.getElementById('child2');
+
+    /**
+     * 二、事件对象（e|window.event）
+     */
+    function move(e) {
+        console.log(e.pageX);
+        parent2.setAttribute('style','left:'+(e.pageX*1-100)+'px;top:'+(e.pageY*1-100)+'px;');
+    }
+    parent2.addEventListener('mousedown', function () {
+        document.addEventListener('mousemove',move );
+    });
+    parent2.addEventListener('mouseup', function () {
+        document.removeEventListener('mousemove',move );
+    });
+
+
+
+</script>
+</html>

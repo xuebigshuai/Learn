@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo</title>
+    <link rel="stylesheet" href="../node_modules/animate.css/animate.css" type="text/css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #app {
+            width: 800px;
+            height: 913px;
+            margin: 0 auto;
+            background: #dadafa;
+            background-size: cover;
+        }
+
+        .my-startup-enter {
+            background: #00ff48;
+            opacity: 0;
+        }
+
+        .my-startup-enter-active {
+            height: 100px;
+            opacity: 1;
+            transition: all 2s ease;
+        }
+
+        .my-startup-leave-active {
+            background: #00ff48;
+            transition: all 2s ease;
+        }
+
+        .my-startup-leave-to {
+            background: #FFBEA3;
+            /* transition: all 2s ease;*/
+        }
+
+        .fade-enter {
+            opacity: 0;
+        }
+
+        .fade-enter-active {
+            transition: opacity .5s;
+        }
+
+        .fade-leave-active {
+            transition: transform .5s;
+        }
+
+        .fade-leave-to {
+            transform: translateX(10px);
+        }
+
+        .my {
+            animation-duration: 3s;
+            animation-delay: 2s;
+            animation-iteration-count: infinite;
+        }
+
+        .my_velocity {
+            width: 200px;
+            height: 60px;
+            border: 1px solid red;
+            border-radius: 20px;
+            text-align: center;
+            line-height: 60px;
+            position: relative;
+        }
+        .contentchild{
+            width: 300px;
+            height: 300px;
+            background-color: #00ff48;
+        }
+        .comeIn-enter,.comeIn-leave-to{
+            opacity: .3;
+        }
+        .comeIn-enter-active,.comeIn-leave-active{
+            transition: all 3s ease;
+        }
+
+    </style>
+    <script type="text/javascript" src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="../node_modules/velocity-animate/velocity.min.js"></script>
+    <script type="application/javascript" src="../node_modules/vue/dist/vue.min.js"></script>
+</head>
+<body>
+<div id="app">
+    <input type="checkbox" v-model="show">{{show}}
+    <!--
+     Vue.js 2.0   系统中取消了 v-transition 这个指令，新增了名为 transition 的内置标签
+
+    -->
+    <transition name="my-startup">
+        <div v-if="show">ddddd</div>
+    </transition>
+    <div id="demo">
+        <button v-on:click="show = !show">Toggle</button>
+        <transition name="fade">
+            <p v-if="show">小火柴的蓝色理想</p>
+        </transition>
+    </div>
+    <div class="ani">
+        <p class="animated infinite bounce delay-2s">
+            Hello World
+        </p>
+        <p class="animated infinite bounce my">
+            Hello World
+        </p>
+        <p class="my_velocity">
+            velocity
+        </p>
+    </div>
+
+    <div class="content">
+        <transition name="comeIn">
+            <div class="contentchild" v-if="ok">VUE2.0</div>
+        </transition>
+    </div>
+
+</div>
+</body>
+<script type="module">
+    /*
+    *  Vue.js 指令是带有前缀的 v- 的属性
+    * */
+    let options = {
+        el: '#app',
+        data: {
+            message: 'Hello VUE',
+            content: [],
+            show: false
+        },
+        computed:{
+            ok(){
+                return this.show
+            }
+        }
+    };
+    let vm = new Vue(options)
+
+    /*
+    * css 过渡钩子函数
+    * */
+    function start() {
+        $(".my_velocity").velocity({left: "200px"}, 2000, "swing", done);
+    };
+    start();
+    function done() {
+        $(".my_velocity").velocity({left: "0px"}, 2000, "swing", start)
+    }
+</script>
+</html>

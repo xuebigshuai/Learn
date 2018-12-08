@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo</title>
+    <style>
+        body {
+            width: 600px;
+            margin: 20px auto;
+        }
+
+        p {
+            border: 2px solid #00ff48;
+            border-radius: 1px;
+        }
+
+        div {
+            margin-bottom: 10px;
+            background-color: #dadafa;
+            overflow: hidden;
+        }
+
+        #app {
+            background-color: transparent;
+        }
+
+        ul, li {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        ul li {
+            float: left;
+            padding: 10px;
+            font-size: 24px;
+            cursor:pointer;
+        }
+    </style>
+    <script type="application/javascript" src="../node_modules/vue/dist/vue.min.js"></script>
+</head>
+<body>
+<div id="app">
+    <div>
+        <ul>
+            <li @click="currentView='home'">Home</li>
+            <li @click="currentView='list'">List</li>
+            <li @click="currentView='detail'">Detail</li>
+        </ul>
+    </div>
+ <component :is="currentView"></component>
+</div>
+</body>
+<script type="module">
+    /*
+    *  Vue.js 指令是带有前缀的 v- 的属性
+    * */
+    let options = {
+        el: '#app',
+        data: {
+            message: 'Hello VUE',
+            content: [],
+            currentView:'home'
+        },
+        components:{
+            home:{
+                template:'<p>this is home</p>'
+            },
+            list:{
+                template:'<p>this is list</p>'
+            },
+            detail:{
+                template:'<p>this is detail</p>'
+            },
+        }
+    };
+    let vm = new Vue(options)
+</script>
+</html>

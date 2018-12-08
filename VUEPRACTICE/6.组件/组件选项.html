@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo</title>
+    <style>
+        body{
+            width: 600px;
+            margin: 20px auto;
+        }
+        p{
+            border: 2px solid #00ff48;
+            border-radius: 1px;
+        }
+        div{
+            margin-bottom: 10px;
+            background-color: #dadafa;
+        }
+        #app{
+            background-color: #444444;
+        }
+    </style>
+    <script type="application/javascript" src="../node_modules/vue/dist/vue.min.js"></script>
+</head>
+<body>
+<div id="app">
+    <my-component parent-message="parentMessage"></my-component>
+    <input type="text" v-model="message"/>
+    <active-component :active-model.once="message"></active-component>
+</div>
+</body>
+<script type="module">
+    /*
+    *  Vue.js 指令是带有前缀的 v- 的属性
+    *  一、1、选项 props 是组件中非常重要的一个选项，起到了父子组件间桥梁的作用。
+    *  2、驼峰命名，组件中属性需要用‘-’隔开
+    * */
+    let options ={
+        el:'#app',
+        data:{
+            message:'Hello VUE , I am parent',
+            content:[],
+        }
+    };
+    //vue2.0 中的template要有一个根元素，不然默认只取第一个html元素
+     Vue.component('my-component',{
+         props:['parentMessage'],
+         template:'<div>\n' +
+         '    <p>This message is From Parent:{{parentMessage}}</p>\n' +
+         '    <P>{{name}}</P>\n' +
+         '</div>',
+         data:function () {
+             return {
+                 name:"component"
+             }
+         }
+     });
+     /*
+       二、动态Props
+     *
+     * 需要注意的是如果直接传递一个数值给子组件，就必须借助动态 Props
+     *
+     * */
+    Vue.component('active-component',{
+        props:['activeModel'],
+        template:'<div><p>this is active:{{activeModel}}</p>' +
+        '<input type="text" v-model="activeModel"/>' +
+        '</div>'
+    });
+    /**
+     * 三、绑定类型
+     *    默认是单向绑定，即子随父动
+     *    .sync:双向绑定，父也随子动 vue2.X取消了该属性
+     *    .once:单次绑定  vue2.X取消了该属性
+     *  由于 Vue.js 处理的方式是引用传递，所以如果 prop 传递的是一个对象
+     或数组，那在子组件内进行修改就会影响父组件的状态，即使是单向绑定也一样
+     */
+    let vm =new Vue(options)
+</script>
+</html>

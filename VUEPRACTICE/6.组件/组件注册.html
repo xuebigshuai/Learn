@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo</title>
+    <style>
+        body {
+            width: 600px;
+            margin: 20px auto;
+        }
+        .par{
+            background-color: #00ff48;
+        }
+    </style>
+    <script type="text/javascript" src="../node_modules/vue/dist/vue.min.js"></script>
+</head>
+<body>
+<div id="app">
+    <glob-component></glob-component>
+    <parent-c></parent-c>
+    <save-message></save-message>
+</div>
+</body>
+<script type="module">
+    /*
+    *  Vue.js 指令是带有前缀的 v- 的属性
+    *  1、组件注册要在根实例初始化前注册
+    *     a、全局注册
+    *     b、局部注册，只能在被注册的组件中使用
+    * */
+    let options = {
+        el: '#app',
+        data: {
+            message: 'Hello VUE',
+            content: [],
+        }
+    };
+    /*
+    * 创建组件
+    * */
+    var glob_component = Vue.extend({
+        template: '<p>This is a glob_component</p>'
+    });
+    var childComponent = Vue.extend({
+        template: '<p>This is a childComponent</p>'
+    });
+    /*
+    * 局部注册
+    * */
+    var parentComponent = Vue.extend({
+        template: '<div class="par"> this is a parentComponent <child-component></child-component></div>',
+        components: {
+            'child-component': childComponent
+        }
+    });
+    /**
+     * 全局注册
+     */
+    Vue.component('glob-component', glob_component);
+    Vue.component('parent-c', parentComponent);
+    /**
+     * 注册语法糖
+     */
+    Vue.component('save-message',{
+        template:'<h1>语法糖</h1>'
+    });
+
+    let vm = new Vue(options)
+</script>
+<script id="tpl" type="x-template">
+
+
+</script>
+</html>
