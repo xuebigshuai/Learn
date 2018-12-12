@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VUEROUTER</title>
+    <link href="../../bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet" >
+    <script src="../../bower_components/jquery/jquery.js"></script>
+    <script src="../../bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script type="application/javascript" src="../../../node_modules/vue/dist/vue.min.js"></script>
+    <script type="application/javascript" src="../../node_modules/vue-router/dist/vue-router.min.js"></script>
+</head>
+<body>
+<div id="app">
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="javascript:void(0)">Brand</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <router-link to="/home">
+                            Home
+                        </router-link>
+                    </li>
+                    <li>
+                        <router-link to="/list">
+                            List
+                        </router-link>
+                    </li>
+                </ul>
+                <form class="navbar-form navbar-left">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                    </div>
+                    <button type="submit" class="btn btn-default">Submit</button>
+                </form>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="javascript:void(0)">Link</a></li>
+                    <li class="dropdown">
+                        <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                           aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="javascript:void(0)">Action</a></li>
+                            <li><a href="javascript:void(0)">Another action</a></li>
+                            <li><a href="javascript:void(0)">Something else here</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="javascript:void(0)">Separated link</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+    <div class="container">
+        <!--路由切换组件 template 插入的位置 -->
+        <router-view></router-view>
+    </div>
+</div>
+</body>
+<script type="module">
+    /**
+     * 使用Vue.use()调用插件
+     */
+      Vue.use(VueRouter);
+    // 创建子组件，相当于路径对应的页面
+    var Home = Vue.extend({
+        template: '<h1>This is Home Page</h1>'
+    });
+    // 创建路由器实例,vue-router 2.0 的变化,VueRouter 的初始化方式、路由规则配置和启动方式均发生了变化;
+    const router = new VueRouter({
+        //路由规则在实例化 VueRouter 的时候就直接传入，而不是调用 map 方法再进行传递
+        routes: [
+            {
+                path: '/home',
+                component: Home
+            },
+            {
+                path: '/list',
+                component: {
+                    template: '<h1>This is List Page</h1>'
+                },
+                /*
+                *
+                * // to: 即将要进入的路由对象
+                * // from: 当前正要离开的路由对象
+                * // next: 进行下一状态，切记，一定要在结束业务逻辑后调用 next 函数，不然钩子函数就不会被 resolved,不调用的话,不执行下个阶段函数
+                * */
+                beforeEnter:function (to,from,next) {
+                    console.log("wo尽到了")
+                    next();
+                }
+            }
+
+        ]
+    });
+    /**
+     *  1、启动方法也发生了变化， router 实例直接传入 Vue.js 实例中，并调用 $mount 方法挂载到DOM 元素中
+     * 2、路由跳转的方式也发生了变化，首先是废弃了 v-link 指令，采用 <router-link> 标签来创建 a 标签来定义链接
+     */
+
+    const app = new Vue({
+        router: router
+    }).$mount('#app')
+
+</script>
+</html>
