@@ -97,8 +97,13 @@
                 * // next: 进行下一状态，切记，一定要在结束业务逻辑后调用 next 函数，不然钩子函数就不会被 resolved,不调用的话,不执行下个阶段函数
                 * */
                 beforeEnter:function (to,from,next) {
-                    console.log("wo尽到了")
-                    next();
+
+                    if(true){
+                        console.log("wo尽到了");
+                    }else{
+                        next();
+                    }
+
                 }
             }
 
