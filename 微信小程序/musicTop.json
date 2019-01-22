@@ -1,0 +1,304 @@
+{
+  "code": 0,
+  "subcode": 0,
+  "message": "",
+  "default": 0,
+  "data": {
+    "topList": [
+      {
+        "id": 4,
+        "listenCount": 19100000,
+        "picUrl": "http://y.gtimg.cn/music/photo_new/T003R300x300M000004DBGnT39H311.jpg",
+        "songList": [
+          {
+            "singername": "吴青峰",
+            "songname": "燕窝"
+          },
+          {
+            "singername": "曲肖冰",
+            "songname": "天亮以前说再见"
+          },
+          {
+            "singername": "iKON",
+            "songname": "I'M OK"
+          }
+        ],
+        "topTitle": "巅峰榜·流行指数",
+        "type": 0
+      },
+      {
+        "id": 26,
+        "listenCount": 19800000,
+        "picUrl": "http://y.gtimg.cn/music/photo_new/T003R300x300M0000009NUrM2csjNF.jpg",
+        "songList": [
+          {
+            "singername": "林俊杰",
+            "songname": "关键词"
+          },
+          {
+            "singername": "胡夏",
+            "songname": "知否知否"
+          },
+          {
+            "singername": "G.E.M. 邓紫棋",
+            "songname": "光年之外"
+          }
+        ],
+        "topTitle": "巅峰榜·热歌",
+        "type": 0
+      },
+      {
+        "id": 27,
+        "listenCount": 17347336,
+        "picUrl": "http://y.gtimg.cn/music/photo_new/T003R300x300M00000233eUT4VujLk.jpg",
+        "songList": [
+          {
+            "singername": "胡夏",
+            "songname": "知否知否"
+          },
+          {
+            "singername": "Westlife",
+            "songname": "Hello My Love"
+          },
+          {
+            "singername": "薛之谦",
+            "songname": "天份"
+          }
+        ],
+        "topTitle": "巅峰榜·新歌",
+        "type": 0
+      },
+      {
+        "id": 58,
+        "listenCount": 7360440,
+        "picUrl": "http://y.gtimg.cn/music/photo_new/T003R300x300M000001lJUXP0lsPmh.jpg",
+        "songList": [
+          {
+            "singername": "GAI",
+            "songname": "永不独行"
+          },
+          {
+            "singername": "G.E.M. 邓紫棋",
+            "songname": "光年之外"
+          },
+          {
+            "singername": "满舒克",
+            "songname": "VVS"
+          }
+        ],
+        "topTitle": "说唱榜",
+        "type": 0
+      },
+      {
+        "id": 28,
+        "listenCount": 20000000,
+        "picUrl": "http://y.gtimg.cn/music/photo_new/T003R300x300M000001qzV5H2jLlOJ.jpg",
+        "songList": [
+          {
+            "singername": "刘至佳",
+            "songname": "说爱你"
+          },
+          {
+            "singername": "221小伙伴",
+            "songname": "遥远的你"
+          },
+          {
+            "singername": "何野",
+            "songname": "天亮以前说再见"
+          }
+        ],
+        "topTitle": "巅峰榜·网络歌曲",
+        "type": 0
+      },
+      {
+        "id": 5,
+        "listenCount": 4369460,
+        "picUrl": "http://y.gtimg.cn/music/photo_new/T003R300x300M000000tj62s10rbVQ.jpg",
+        "songList": [
+          {
+            "singername": "薛之谦",
+            "songname": "天份"
+          },
+          {
+            "singername": "胡夏",
+            "songname": "知否知否"
+          },
+          {
+            "singername": "火箭少女101段奥娟",
+            "songname": "我不愿明白"
+          }
+        ],
+        "topTitle": "巅峰榜·内地",
+        "type": 0
+      },
+      {
+        "id": 6,
+        "listenCount": 1920000,
+        "picUrl": "http://y.gtimg.cn/music/photo_new/T003R300x300M000001GkAif0VBYhf.jpg",
+        "songList": [
+          {
+            "singername": "田馥甄",
+            "songname": "墨绿的夜"
+          },
+          {
+            "singername": "陈立农",
+            "songname": "有梦可待"
+          },
+          {
+            "singername": "五月天",
+            "songname": "转眼（2018 自传最终章）"
+          }
+        ],
+        "topTitle": "巅峰榜·港台",
+        "type": 0
+      },
+      {
+        "id": 3,
+        "listenCount": 9800000,
+        "picUrl": "http://y.gtimg.cn/music/photo_new/T003R300x300M000000szK5v1UgQMj.jpg",
+        "songList": [
+          {
+            "singername": "Skylar Grey",
+            "songname": "Everything I Need"
+          },
+          {
+            "singername": "Backstreet Boys",
+            "songname": "No Place"
+          },
+          {
+            "singername": "Chris Brown",
+            "songname": "Undecided"
+          }
+        ],
+        "topTitle": "巅峰榜·欧美",
+        "type": 0
+      },
+      {
+        "id": 16,
+        "listenCount": 5545240,
+        "picUrl": "http://y.gtimg.cn/music/photo_new/T003R300x300M000003nkRZS1mPOlm.jpg",
+        "songList": [
+          {
+            "singername": "iKON",
+            "songname": "I'M OK"
+          },
+          {
+            "singername": "김청하",
+            "songname": "벌써 12시"
+          },
+          {
+            "singername": "로꼬",
+            "songname": "별"
+          }
+        ],
+        "topTitle": "巅峰榜·韩国",
+        "type": 0
+      },
+      {
+        "id": 29,
+        "listenCount": 2827740,
+        "picUrl": "http://y.gtimg.cn/music/photo_new/T003R300x300M000003r3pSd2hqduR.jpg",
+        "songList": [
+          {
+            "singername": "胡夏",
+            "songname": "知否知否"
+          },
+          {
+            "singername": "陈立农",
+            "songname": "有梦可待"
+          },
+          {
+            "singername": "火箭少女101段奥娟",
+            "songname": "我不愿明白"
+          }
+        ],
+        "topTitle": "巅峰榜·影视金曲",
+        "type": 0
+      },
+      {
+        "id": 17,
+        "listenCount": 1572900,
+        "picUrl": "http://y.gtimg.cn/music/photo_new/T003R300x300M000002vp53A2dCtdi.jpg",
+        "songList": [
+          {
+            "singername": "EXILE",
+            "songname": "Love of History"
+          },
+          {
+            "singername": "Reol",
+            "songname": "mede:mede"
+          },
+          {
+            "singername": "初音ミク",
+            "songname": "リフレクションナイト"
+          }
+        ],
+        "topTitle": "巅峰榜·日本",
+        "type": 0
+      },
+      {
+        "id": 201,
+        "listenCount": 376902,
+        "picUrl": "http://y.gtimg.cn/music/photo_new/T003R300x300M000000g6d8D2fotki.jpg",
+        "songList": [
+          {
+            "singername": "薛之谦",
+            "songname": "违背的青春"
+          },
+          {
+            "singername": "展展与罗罗",
+            "songname": "沙漠骆驼"
+          },
+          {
+            "singername": "iKON (아이콘)",
+            "songname": "I'M OK"
+          }
+        ],
+        "topTitle": "巅峰榜·MV",
+        "type": 0
+      },
+      {
+        "id": 52,
+        "listenCount": 1151675,
+        "picUrl": "http://y.gtimg.cn/music/photo_new/T003R300x300M000002esmh42trl68.jpg",
+        "songList": [
+          {
+            "singername": "简弘亦",
+            "songname": "同感"
+          },
+          {
+            "singername": "徐畅SEN",
+            "songname": "来来往往"
+          },
+          {
+            "singername": "EnjiA(魏恩佳)",
+            "songname": "雨季"
+          }
+        ],
+        "topTitle": "巅峰榜·腾讯音乐人原创榜",
+        "type": 0
+      },
+      {
+        "id": 36,
+        "listenCount": 3351260,
+        "picUrl": "http://y.gtimg.cn/music/photo_new/T003R300x300M000002KNX2u1jttFq.jpg",
+        "songList": [
+          {
+            "singername": "大天使 icey",
+            "songname": "知否知否"
+          },
+          {
+            "singername": "东星",
+            "songname": "天份"
+          },
+          {
+            "singername": "二少君",
+            "songname": "可惜没如果"
+          }
+        ],
+        "topTitle": "巅峰榜·K歌金曲",
+        "type": 0
+      }
+    ]
+  }
+}
